@@ -1,0 +1,7 @@
+﻿D:\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(510,5): warning MSB8028: 中间目录(x64\Debug\)包含从另一个项目(图形学大作业.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  SSAO.cpp
+D:\陈奕阳文件\北大课程资料\专业课\计算机图形学\程序\SSAO\图形学大作业\SSAO.cpp(36,29): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\陈奕阳文件\北大课程资料\专业课\计算机图形学\程序\SSAO\图形学大作业\SSAO.cpp(36,18): warning C4244: “初始化”: 从“double”转换到“const float”，可能丢失数据
+D:\陈奕阳文件\北大课程资料\专业课\计算机图形学\程序\SSAO\图形学大作业\SSAO.cpp(268,32): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+D:\陈奕阳文件\北大课程资料\专业课\计算机图形学\程序\SSAO\图形学大作业\SSAO.cpp(269,33): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  图形学大作业.vcxproj -> D:\陈奕阳文件\北大课程资料\专业课\计算机图形学\程序\SSAO\x64\Debug\SSAO.exe
