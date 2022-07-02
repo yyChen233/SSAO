@@ -1,2 +1,65 @@
-# SSAO
-è®¡ç®—æœºå›¾å½¢å­¦-SSAOå¤§ä½œä¸š
+
+# ¼ÆËã»úÍ¼ÐÎÑ§ SSAO & SSDO
+- ÏîÄ¿¼ò½é  
+
+ ±¾ÏîÄ¿ÊÇÀûÓÃ**ÆÁÄ»¿Õ¼ä»·¾³¹âÕÚ±Î**£¨Screen-Space Ambient Occlusion£¬SSAO£©¼¼ÊõÒÔ¼°**ÆÁÄ»¿Õ¼ä¶¨ÏòÕÚ±Î**£¨Screen-Space Directional Occlusion£¬SSDO£©¼¼ÊõÊµÏÖµÄÍ¼ÐÎäÖÈ¾³ÌÐò.  
+ 
+ ±¾ÏîÄ¿ÒÔGLFW¿âºÍGLAD¿âÎª»ù´¡½øÐÐOpenGL±à³Ì£¬Ê¹ÓÃAssimp¿âÒÔµ¼ÈëÄ£ÐÍ£¬Ê¹ÓÃImgui¿âÒÔ´´½¨½»»¥´°¿Ú. 
+ 
+ ±¾ÏîÄ¿ÔÚÊµÏÖÁËSSAOºÍSSDO¼¼ÊõµÄÍ¬Ê±£¬ÔÊÐíÓÃ»§×ÔÐÐÉèÖÃÄ³Ð©¼¼Êõ²ÎÊý£¬²¢¿ÉÒÔÑ¡Ôñ²»Í¬µÄÄ£ÐÍ¡¢ÒÔÈÎÒâÊÓ½Ç¹Û²ìäÖÈ¾½á¹û.
+ 
+- ±àÒëºÍÖ´ÐÐ·½·¨  
+
+±¾ÏîÄ¿¿ÉÒÔÊ¹ÓÃcmake½øÐÐ±àÒë.ÊäÈëÈçÏÂÃüÁî¼´¿É±àÒë´úÂë.
+```
+  mkdir build 
+  cd build
+  cmake ..
+  cd ..
+  cmake --build build
+```
+
+ÒÔVisual Studio 2022»·¾³ÎªÀý£¬±àÒëÍê³Éºó£¬´ò¿ªbuildÎÄ¼þ¼ÐÏÂµÄSSAO_SSDO.slnÎÄ¼þ£¬Ñ¡ÔñÏîÄ¿SSAO»òSSDO£¬ÓÒ¼ü**ÉèÎªÆô¶¯ÏîÄ¿**ºó¼´¿ÉÊ¹ÓÃ**±¾µØWindowsµ÷ÊÔÆ÷**Ö´ÐÐ.
+
+ÔËÐÐ³É¹¦ºó£¬ÓÃ»§¿ÉÒÔ¹Û²ìµ½Ò»¸öèòèòÈçÉúµÄÁúÄ£ÐÍÔÚÌì¿ÕÖ®ÏÂ¡¢É½Ë®Ö®¼äµÄ¹âÕÕäÖÈ¾½á¹û£¬ÈçÏÂÍ¼ËùÊ¾.
+
+![äÖÈ¾½á¹û](https://github.com/yyChen233/SSAO/blob/main/%E6%B8%B2%E6%9F%93%E7%BB%93%E6%9E%9C.png)
+
+
+
+-  ½»»¥·½Ê½
+
+1. ÊÓµãºÍÊÓ½ÇµÄ×ÔÓÉ±ä»»
+
+	1.1  ÔÚÓ¢ÎÄÊäÈë·¨ÏÂ°´ÏÂ¼üÅÌÉÏµÄW/S/A/D¼ü£¬¿ÉÒÔÊµÏÖÉãÏñ»úµÄÇ°/ºó/×ó/ÓÒÒÆ¶¯.
+	
+	1.2  °´ÏÂ¼üÅÌÉÏµÄ¿Õ¸ñ¼ü£¬¿ÉÒÔÊµÏÖÉãÏñ»úÏòÉÏÒÆ¶¯£»°´ÏÂ¼üÅÌÉÏµÄShift¼ü£¬¿ÉÒÔÊµÏÖÉãÏñ»úÏòÏÂÒÆ¶¯.
+	
+	1.3  °´ÏÂ¼üÅÌÉÏµÄÉÏ¡¢ÏÂ¡¢×ó¡¢ÓÒ¼ü£¨²»ÊÇÐ¡¼üÅÌÉÏµÄ¼ü£©£¬¿ÉÒÔÊµÏÖÉãÏñ»úÊÓ½ÇÏòÉÏ¡¢ÏòÏÂ¡¢Ïò×ó¡¢ÏòÓÒ±ä¶¯£¨¿ÉÒÔ·Ö±ðÀí½âÎªÌ§Í·¿´¡¢µÍÍ·¿´¡¢Ïò×ó¿´¡¢ÏòÓÒ¿´£©.
+	
+	1.4 Ê¹ÓÃÊó±ê¹öÂÖ¿ÉÒÔ½øÐÐËõ·Å.
+	
+	1.5 **ÆÕÍ¨Ä£Ê½**ºÍ**MCÄ£Ê½**£ºÔÚÊó±ê½»»¥½çÃæ¡°Settings¡±µã»÷Options²Ëµ¥À¸£¬Ñ¡ÔñMC Mode£¬¼´¿ÉÓÉÆÕÍ¨Ä£Ê½½øÈë¡°MCÄ£Ê½¡±£¬Ò²¼´ÊÇÀàËÆÓÚÓÎÏ·¡°Minecraft£¨ÎÒµÄÊÀ½ç£©¡±µÄÊÓ½Ç±ä»»Ä£Ê½.´ËÄ£Ê½ÏÂÓÃ»§µÄÊó±ê½«±»²¶»ñ¶ø²»ÔÙ³öÏÖ£¬ÉãÏñ»úµÄÊÓ½Ç½«ËæÓÃ»§µÄÊó±êµÄÒÆ¶¯¶ø·¢Éú±ä»¯.½øÈëMCÄ£Ê½ºó£¬Èç¹ûÏëÍË³ö¸ÃÄ£Ê½£¬°´Ò»´Î¼üÅÌÉÏµÄEsc¼ü¼´¿É.
+
+2. µ÷ÕûSSAO/SSDOÊôÐÔ
+	
+	ÔÚÆÕÍ¨Ä£Ê½ÏÂ£¬Í¨¹ýÊó±ê½»»¥½çÃæ¡°Settings¡±ÖÐµÄ¡°SSAO/SSDO Settings¡±ÁÐ±í£¬ÓÃ»§¿ÉÒÔÍ¨¹ýÍÏ¶¯»¬¶¯ÌõµÄ·½Ê½ÈËÎªÉèÖÃSSAO/SSDOµÄ²ÎÊý£¬±ÈÈç²ÉÑùºËÐÄ¹æÄ£(Size of Kernel)ºÍ²ÉÑù°ë¾¶(Radius)µÈ.
+
+3. µ÷Õû¹âÕÕÊôÐÔ
+
+	ÔÚÆÕÍ¨Ä£Ê½ÏÂ£¬ÓÃ»§¿ÉÒÔÔÚ½»»¥½çÃæ¡°Settings¡±ÖÐµÄ¡°Light Settings¡±ÁÐ±íÏÂµ÷Õû¹âÕÕÊôÐÔ.
+	
+	Ò»·½Ãæ£¬ÓÃ»§¿ÉÒÔÊÖ¶¯ÍÏ¶¯»¬¶¯ÌõÒÔµ÷Õû¹âÔ´Î»ÖÃ(Light Position)µÄxyz·ÖÁ¿£¬´Ó¶øµ÷Õû¹âÔ´Î»ÖÃ£»
+
+	ÁíÒ»·½Ãæ£¬ÓÃ»§¿ÉÒÔÉèÖÃ¹âÔ´µÄÑÕÉ«(Light Color).ÓÃ»§¿ÉÒÔÈËÎªÊäÈëRGBÉ«Öµ£¨Èç±±´óºì£ºR=139 , G=0 , B=18£©£¬Ò²¿ÉÒÔÔÚÉ«°åÖÐ½øÐÐÑÕÉ«Ñ¡Ôñ.
+
+4. µ÷ÕûÄ£ÐÍÊôÐÔ
+
+	ÔÚÆÕÍ¨Ä£Ê½ÏÂ£¬ÓÃ»§¿ÉÒÔÔÚ½»»¥½çÃæ¡°Settings¡±ÖÐµÄ¡°Model Settings¡±ÁÐ±íÏÂµ÷ÕûÄ£ÐÍÊôÐÔ.
+
+	ÓÃ»§¿ÉÒÔÀûÓÃÏÂÀ­µ¥Ñ¡¿òÔÚÔ¤ÖÃµÄ10¸öÄ£ÐÍÖÐ½øÐÐÇÐ»»£¬ÒÔ¹Û²ì²»Í¬µÄÄ£ÐÍµÄäÖÈ¾Ð§¹û£»ÓÃ»§»¹¿ÉÒÔÈËÎªµ÷ÕûÄ£ÐÍµÄ·ÅÖÃµ÷¶È£¬Í¨¹ýÍÏ¶¯»¬¶¯Ìõµ÷ÕûModel Angle£¬´Ó¶øÈÆxyzÖáÐý×ªÄ£ÐÍ.
+
+5. ÍË³ö³ÌÐò
+
+ 	ÔÚÆÕÍ¨Ä£Ê½°´ÏÂ¼üÅÌÉÏµÄEsc¼ü£¬¿ÉÒÔ½áÊø³ÌÐò²¢¹Ø±Õ´°¿Ú.ÈôÔÚMCÄ£Ê½ÏÂ°´ÏÂEsc¼ü£¬½«ÍË³ö¸ÃÄ£Ê½¶ø±äÎªÆÕÍ¨Ä£Ê½£¨¼û1.5£©£¬ÍË³öºóÔÙ°´Ò»´ÎEsc¼ü£¬¼´¿ÉÍË³ö³ÌÐò.´ËÍâ£¬ÓÃ»§»¹¿ÉÒÔµã»÷Options²Ëµ¥À¸£¬µã»÷QuitÑ¡ÏîÀ´ÍË³ö³ÌÐò.
+
